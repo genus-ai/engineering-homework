@@ -55,6 +55,6 @@ and another one that generates a report `.csv`
 
 Write down some thoughts on how to go from the solution above to a bigger problem. Some questions:
 
-What if the are more rows? Customer file can have up to 3 million rows, database - up to 250M.
-What if the files a bigger? We have more metadata. Compressed db from the above is about 50GB.
-What if customer data is a bit more messy? What could be a good approach to deal with more typos.
+  * What if the are more rows? Customer file can have up to 3 million rows, database - up to 250M.
+  * What if the files a bigger? We have more metadata. Compressed db from the above is about 50GB.
+  * What if customer data is a bit more messy? What could be a good approach to deal with more typos.
