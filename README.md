@@ -27,7 +27,11 @@ However, there is a complication - client data source is taken from user input, 
 We observe two problems in this dataset:
 * Some clients have entered their full_name in one of the fields.
 * Some other clients have mistyped their names (test dataset is built by deleting a single character in the name)
-The goal of the enrichment is to achieve maximum match rate, taking into account the inaccuracies in the data too. Match rate is defined as # of rows from `fake_customers.csv` matched correctly to `fake_db.csv`.
+
+To solve this, we'd like to do a multipass join:
+  1) Join all of the customers that join exactly.
+  2) Take the rest, join the customers that have typed their name/surname in the wrong field
+  3) Take the rest, join the customers that have a typo in their name
   
 The output should be a joined dataset with client columns, our columns and an extra column indicating the "quality" of the join.
 
