@@ -33,7 +33,7 @@ To solve this, we'd like to do a multipass join:
   2) Take the rest, join the customers that have typed their name/surname in the wrong field
   3) Take the rest, join the customers that have a typo in their name
   
-The output should be a joined dataset with client columns, our columns and an extra column indicating the "quality" of the join.
+The output should be a (left) joined dataset with client columns, our columns and an extra column indicating the "quality" of the join (if a match was found).
 
 ### Part 2 - Report
 
@@ -43,7 +43,24 @@ Finally, we'd like to build a report about this dataset.
 2) We want to see counts per income bracket (0-40000, 40-60000, 60-80000, 80000+)
 3) We want to see counts per first three digits of the zip (123**)
 
-We want breakdowns on combinations of the above. Ideally, the solution should accept the columns to report on and produce a single report.
+We want breakdowns on combinations of the above. Example:
+
+```
+gender,income,zip,total
+M,0_40k,123,3
+F,0_40k,123,5
+M,0_40k,124,2
+F,0_40k,124,1
+...
+```
+
+Bonus: Ideally, the solution should accept the columns to report on and produce a single report. For example, if we want a report on (income,zip), then the above report would become:
+
+```
+income,zip,total
+0_40k,123,8
+0_40k,124,3
+```
 
 ## Solution
 
